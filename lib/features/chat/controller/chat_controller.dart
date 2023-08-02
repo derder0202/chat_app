@@ -7,4 +7,8 @@ class ChatController extends _$ChatController {
   FutureOr<Stream?> build(String userId, String otherUserId) async {
     return await ref.read(chatRepositoryProvider).getMessage(userId, otherUserId);
   }
+
+  Future<void> sendMessage(String receiverId, String message)async{
+    await ref.read(chatRepositoryProvider).sendMessage(receiverId, message);
+  }
 }

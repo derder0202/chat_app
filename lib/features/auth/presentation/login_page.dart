@@ -1,9 +1,9 @@
 import 'package:chat_app/features/auth/presentation/controller/auth_controller.dart';
 import 'package:chat_app/features/auth/presentation/register_page.dart';
+import 'package:chat_app/features/home/home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../app/app.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -14,6 +14,14 @@ class LoginPage extends ConsumerStatefulWidget {
   final _formKey = GlobalKey<FormState>();
   String _email = '';
   String _password = '';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
+
    @override
   Widget build(BuildContext context) {
      final authController = ref.watch(authControllerProvider);
@@ -62,7 +70,7 @@ class LoginPage extends ConsumerStatefulWidget {
                         final resultLogin = await ref.read(authControllerProvider.notifier).login(_email, _password);
                         if(resultLogin){
                           if(mounted){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const AppHome()));
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));
                           }
                         }
                       }

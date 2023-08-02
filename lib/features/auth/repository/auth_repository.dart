@@ -1,12 +1,10 @@
-
-import 'package:chat_app/common/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final authRepositoryProvider = Provider((ref) => AuthRepository());
 
+final authRepositoryProvider = Provider((ref) => AuthRepository());
 class AuthRepository{
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseDatabase realtimeDatabase = FirebaseDatabase.instance;

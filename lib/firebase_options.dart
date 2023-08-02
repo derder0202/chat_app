@@ -50,6 +50,7 @@ class DefaultFirebaseOptions {
     projectId: 'chat-a3099',
     authDomain: 'chat-a3099.firebaseapp.com',
     storageBucket: 'chat-a3099.appspot.com',
+    databaseURL: "https://chat-a3099-default-rtdb.asia-southeast1.firebasedatabase.app",
   );
 
   static const FirebaseOptions android = FirebaseOptions(

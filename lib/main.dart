@@ -1,5 +1,7 @@
 import 'package:chat_app/colors.dart';
 import 'package:chat_app/features/auth/presentation/login_page.dart';
+import 'package:chat_app/features/home/home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,11 +32,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Whatsapp UI',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: LoginPage(),
+      home:  FirebaseAuth.instance.currentUser != null? HomePage() : LoginPage(),
     );
   }
 }
